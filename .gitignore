@@ -205,3 +205,19 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Kubernetes manifests locaux
+*.yaml
+*.yml
+
+# Modeles et resultats
+*.pth
+*.joblib
+*.pkl
+results/
+metrics.json
+
+# Credentials
+kaggle.json
+kubeconfig
+*join_command*
