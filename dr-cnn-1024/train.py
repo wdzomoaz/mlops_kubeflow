@@ -98,9 +98,9 @@ def main():
     print(f"Train: {train_size}, Val: {val_size}")
 
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size,
-                              shuffle=True, num_workers=4, pin_memory=True)
+                              shuffle=True, num_workers=0, pin_memory=False)
     val_loader = DataLoader(val_dataset, batch_size=args.batch_size,
-                            shuffle=False, num_workers=4, pin_memory=True)
+                            shuffle=False, num_workers=0, pin_memory=False)
 
     num_classes = len(full_dataset.classes)
     model = get_model(args.model, num_classes)
