@@ -1,4 +1,5 @@
 name: Build and Push Docker images
+
 on:
   push:
     branches: [main]
@@ -6,11 +7,17 @@ on:
       - 'katib-adult/**'
       - 'katib-amazon/**'
       - 'dr-cnn-1024/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build-adult:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Login Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - name: Build and Push katib-adult
@@ -18,10 +25,11 @@ jobs:
           cd katib-adult
           docker build -t wdzomoaz/katib-adult:${{ github.sha }} .
           docker push wdzomoaz/katib-adult:${{ github.sha }}
+
   build-amazon:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Login Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - name: Build and Push katib-amazon
@@ -29,10 +37,11 @@ jobs:
           cd katib-amazon
           docker build -t wdzomoaz/katib-amazon:${{ github.sha }} .
           docker push wdzomoaz/katib-amazon:${{ github.sha }}
+
   build-dr-cnn-1024:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Login Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - name: Build and Push dr-cnn-1024
