@@ -1,5 +1,4 @@
 name: Build and Push Docker images
-
 on:
   push:
     branches: [main]
@@ -8,11 +7,9 @@ on:
       - 'katib-amazon/**'
       - 'dr-cnn-1024/**'
   workflow_dispatch:
-
 permissions:
   contents: read
   packages: write
-
 jobs:
   build-adult:
     runs-on: ubuntu-latest
@@ -23,9 +20,9 @@ jobs:
       - name: Build and Push katib-adult
         run: |
           cd katib-adult
-          docker build -t wdzomoaz/katib-adult:${{ github.sha }} .
+          docker build -t wdzomoaz/katib-adult:${{ github.sha }} -t wdzomoaz/katib-adult:latest .
           docker push wdzomoaz/katib-adult:${{ github.sha }}
-
+          docker push wdzomoaz/katib-adult:latest
   build-amazon:
     runs-on: ubuntu-latest
     steps:
@@ -35,9 +32,9 @@ jobs:
       - name: Build and Push katib-amazon
         run: |
           cd katib-amazon
-          docker build -t wdzomoaz/katib-amazon:${{ github.sha }} .
+          docker build -t wdzomoaz/katib-amazon:${{ github.sha }} -t wdzomoaz/katib-amazon:latest .
           docker push wdzomoaz/katib-amazon:${{ github.sha }}
-
+          docker push wdzomoaz/katib-amazon:latest
   build-dr-cnn-1024:
     runs-on: ubuntu-latest
     steps:
@@ -47,5 +44,6 @@ jobs:
       - name: Build and Push dr-cnn-1024
         run: |
           cd dr-cnn-1024
-          docker build -t wdzomoaz/dr-cnn-1024:${{ github.sha }} .
+          docker build -t wdzomoaz/dr-cnn-1024:${{ github.sha }} -t wdzomoaz/dr-cnn-1024:latest .
           docker push wdzomoaz/dr-cnn-1024:${{ github.sha }}
+          docker push wdzomoaz/dr-cnn-1024:latest
