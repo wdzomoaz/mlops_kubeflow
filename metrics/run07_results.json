@@ -1,0 +1,30 @@
+{
+  "run": "dr-cnn-run-07",
+  "simplecnn": {
+    "val_accuracy": 0.7284,
+    "f1_macro": "N/A",
+    "per_class": {
+      "No_DR": 0.9998,
+      "Mild": 0.0,
+      "Moderate": 0.0009,
+      "Severe": 0.0,
+      "Proliferative": 0.0
+    },
+    "epochs": 25,
+    "training_time_seconds": 4706.26
+  },
+  "resnet18": {
+    "val_accuracy": 0.7284,
+    "f1_macro": "N/A",
+    "per_class": {
+      "No_DR": 1.0,
+      "Mild": 0.0,
+      "Moderate": 0.0,
+      "Severe": 0.0,
+      "Proliferative": 0.0
+    },
+    "epochs": 25,
+    "training_time_seconds": 4851.43
+  },
+  "conclusion": "class_weights seul insuffisant - batches encore desequilibres"
+}
