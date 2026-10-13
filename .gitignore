@@ -221,3 +221,4 @@ metrics.json
 kaggle.json
 kubeconfig
 *join_command*
+!anleitung/templates/*.yaml

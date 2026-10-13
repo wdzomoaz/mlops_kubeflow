@@ -1,0 +1,8 @@
+apiVersion: kubeflow.org/v1
+kind: Profile
+metadata:
+  name: NAMESPACE
+spec:
+  owner:
+    kind: User
+    name: EMAIL

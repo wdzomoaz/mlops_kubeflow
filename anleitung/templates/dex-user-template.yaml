@@ -1,0 +1,4 @@
+- email: EMAIL
+  hash: "HASH"
+  username: USERNAME
+  userID: "USERID"
